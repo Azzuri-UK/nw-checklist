@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --parchment: #f1e9d2; }
+html, body { color: var(--parchment); background: #000; }
+:focus-visible { outline: 2px solid #c8a74e; outline-offset: 2px; }
