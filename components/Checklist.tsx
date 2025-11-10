@@ -100,11 +100,15 @@ export default function Checklist() {
         if (!meta) return false;
         return (meta.tags ?? []).includes(chestTag);
     };
-
     const chestAddByTag = () => setTasks((prev) => [
         ...CHEST_RUN_PRESET
             .filter((p) => chestTag === 'all' ? true : (CHEST_RUN_INDEX[p.slug]?.tags ?? []).includes(chestTag))
-            .map((p) => ({id: `c-${p.slug}`, title: p.title, category: p.category, done: false})),
+            .map((p) => ({id: `c-${p.slug}`, title: p.title, category: p.category, done: false}))
+            .sort((a, b) => {
+                const aIndex = DEFAULT_ORDER.indexOf(a.category);
+                const bIndex = DEFAULT_ORDER.indexOf(b.category);
+                return aIndex - bIndex;
+            }),
         ...prev,
     ]);
 
@@ -321,8 +325,6 @@ export default function Checklist() {
                         }}
                     />
                 )}
-
-                <div className="mt-10 text-xs opacity-70">Built for Next.js App Router.</div>
             </div>
         </div>
     );

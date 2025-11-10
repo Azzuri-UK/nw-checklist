@@ -2,23 +2,26 @@ import type {Category, ChestRun, Task} from './types';
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const RAW: ChestRun[] = [
-    {name: 'Imperial Palace', aliases: ['IMP'], zone: 'Ebonscale', tags: ['Infix Farming']},
+    {name: 'Archivum Passage', aliases: ['PASS'], zone: 'Nighthaven', tags: []},
     {name: "Attalus's Foundry", aliases: ['ATTA'], zone: 'Ebonscale', tags: ['Infix Farming']},
-    {name: 'Scorched Mines', aliases: ['MINES'], zone: 'Shattered Mountain', tags: ['Infix Farming']},
-    {name: 'Myrkgard', aliases: ['MYRK'], zone: 'Shattered Mountain', tags: ['Infix Farming']},
-    {name: 'Malevolence', aliases: ['MALV'], zone: 'Edengrove'},
+    {name: 'Beds of Ta-Bitjet', aliases: ['BEDS'], zone: 'Brimstone Sands', tags: []},
+    {name: 'Cayo De La Muerte', aliases: ['CK'], zone: 'Cutlass Keys', tags: []},
+    {name: 'Castrum Principium', aliases: ['CAST'], zone: 'Brimstone Sands', tags: []},
     {name: 'Eternal Pool', aliases: ['POOL'], zone: 'Reekwater', tags: []},
     {name: 'Forecastle Drift', aliases: ['SIREN'], zone: 'Reekwater', tags: []},
-    {name: 'Cayo De La Muerte', aliases: ['CK'], zone: 'Cutlass Keys', tags: []},
-    {name: 'Heliopolis', aliases: ['HELIOS'], zone: 'Brimstone Sands', tags: []},
     {name: 'Great Wall of Nebet-Het', aliases: ['WALL', 'WEST WALL'], zone: 'Brimstone Sands', tags: []},
-    {name: 'Beds of Ta-Bitjet', aliases: ['BEDS'], zone: 'Brimstone Sands', tags: []},
-    {name: 'Castrum Principium', aliases: ['CAST'], zone: 'Brimstone Sands', tags: []},
-    {name: 'Solarium Khepri', aliases: ['KHEPRI', 'KHEP'], zone: 'Brimstone Sands', tags: []},
+    {name: 'Heliopolis', aliases: ['HELIOS'], zone: 'Brimstone Sands', tags: []},
+    {name: 'Imperial Palace', aliases: ['IMP'], zone: 'Ebonscale', tags: ['Infix Farming']},
     {name: 'Isle of Zurvan', aliases: ['ZURVAN', 'ZURV'], zone: 'Elysian Wilds', tags: []},
-    {name: 'Tribunal Highmound', aliases: ['TRIB'], zone: 'Elysian Wilds', tags: []},
+    {name: 'Malevolence', aliases: ['MALV'], zone: 'Edengrove'},
+    {name: 'Myrkgard', aliases: ['MYRK'], zone: 'Shattered Mountain', tags: ['Infix Farming']},
+    {name: 'Nightbreak Roost', aliases: ['ROOST', 'JUMP'], zone: 'Nighthaven', tags: ['Jumping Puzzles']},
+    {name: 'Reekwater Soulmarks', aliases: ['SOUL'], zone: 'Reekwater', tags: ['Solo']},
+    {name: 'Scorched Mines', aliases: ['MINES'], zone: 'Shattered Mountain', tags: ['Infix Farming']},
     {name: 'Scorpios', aliases: ['SCORPIOS'], zone: 'Mourningdale', tags: ['Infix Farming']},
+    {name: 'Solarium Khepri', aliases: ['KHEPRI', 'KHEP'], zone: 'Brimstone Sands', tags: []},
     {name: 'Sulfur Pools', aliases: [], zone: 'Brimstone Sands', tags: ['Solo']},
+    {name: 'Tribunal Highmound', aliases: ['TRIB'], zone: 'Elysian Wilds', tags: []},
 ];
 
 export const CHEST_RUNS: ChestRun[] = RAW.map(r => ({...r, slug: r.slug ?? slugify(r.name)}));
